@@ -3,18 +3,27 @@ const { createApp } = Vue;
 const app = createApp({
     data() {
         return {
-            title: 'Todo List',
+            title: 'To-do List',
             todoList: [],
+            newTask: {
+                text: '',
+                status: false
+            }
         }
     },
 
     methods: {
-        // chiamata axios
+        // chiamata axios per il file json
         fetchTodoList() {
-            axios.get('http://localhost/php-todo-list-json/backend/api/get-list.php').then((response) => {
+            axios.get('../backend/api/get-list.php').then((response) => {
                 // metto la risposta nella todolist
                 this.todoList = response.data;
             })
+        },
+
+        // chiamata axios per un nuovo task da aggiungere
+        fetchAddTask() {
+            axio.post('../backend/api/store-task.php')
         }
     },
 

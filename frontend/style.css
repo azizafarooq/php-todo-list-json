@@ -1,0 +1,29 @@
+.container {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 500px;
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+}
+
+.list-group-item {
+    min-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.5rem 1.5rem 0;
+}
+
+.fa-trash-can {
+    color: #ff0000;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.done {
+    text-decoration: line-through;
+}
