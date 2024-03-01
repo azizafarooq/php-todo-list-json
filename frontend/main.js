@@ -6,8 +6,8 @@ const app = createApp({
             title: 'To-do List',
             todoList: [],
             newTask: {
-                text: '',
-                status: false
+                task: '',
+                done: false
             }
         }
     },
@@ -22,8 +22,24 @@ const app = createApp({
         },
 
         // chiamata axios per un nuovo task da aggiungere
-        fetchAddTask() {
-            axio.post('../backend/api/store-task.php')
+        fetchStoreTask() {
+            // i dati che devo postare nella richiesta
+            const data = {
+                task: this.newTask.task,
+                done: false,
+            };
+
+            // parametri da aggiungere alla richiesta
+            const params = {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }
+
+            // la richiesta per aggiungere una task nella todo list
+            axios.post('../backend/api/store-task.php', data, params).then((response) => {
+                this.todoList = response.data;
+            })
         }
     },
 
